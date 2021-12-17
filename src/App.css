@@ -1,0 +1,14 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+body{
+  font-family: var(--curnon-font);
+}
