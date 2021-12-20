@@ -1,8 +1,11 @@
-import { call, put, takeLatest, all } from "redux-saga/effects";
+import { call, put, takeLatest, all, takeEvery } from "redux-saga/effects";
 import {
   Actions,
   getDataCurrencySuccess,
-  getValCurrencySuccess
+  getValCurrencySuccess,
+  getManSuccess,
+  getWomanSuccess,
+  getDetailSuccess
 } from "../actions";
 import TableService from "../../services/table.services";
 function* fetchCurrency() {
@@ -30,10 +33,40 @@ function* fetchUser(action) {
     yield put({ type: "USER_FETCH_FAILED", message: e.message });
   }
 }
+function* fetchMan() {
+  try {
+    console.log("hihih")
+    const list = yield call(TableService.listMan);
+    yield put(getManSuccess(list));
+  } catch (e) {
+    console.log("hihih")
+    yield put({ type: "USER_FETCH_FAILED", message: e.message });
+  }
+}
+
+function* fetchWoman() {
+  try {
+    const list = yield call(TableService.listWoman);
+    yield put(getWomanSuccess(list));
+  } catch (e) {
+    yield put({ type: "USER_FETCH_FAILED", message: e.message });
+  }
+}
+function* fetchDetail(action) {
+  console.log(action,"pay")
+  try {
+    const detail = yield call(TableService.detail, action.payload);
+    yield put(getDetailSuccess(detail));
+  } catch (e) {
+    yield put({ type: "USER_FETCH_FAILED", message: e.message });
+  }
+}
 function* mySaga() {
-  yield takeLatest(Actions.GET_DATA_CURRENCY, fetchCurrency);
-  yield takeLatest(Actions.GET_VAL_CURRENCY, fetchChangeValCurrency);
-  yield takeLatest(Actions.GET_DATA, fetchUser);
+  yield takeLatest(Actions.GET_DELTAI, fetchDetail);
+  yield takeLatest(Actions.GET_DATA_MAN, fetchMan);
+  yield takeLatest(Actions.GET_DATA_WOMAN, fetchWoman);
+  
+
 }
 
 export default function* rootSaga() {

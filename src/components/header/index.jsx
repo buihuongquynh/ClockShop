@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Drop from "../drops/Drop";
 import "./style.css";
 import {useHistory } from 'react-router-dom';
 const Header = () => {
