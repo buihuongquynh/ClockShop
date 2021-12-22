@@ -1,20 +1,23 @@
-import { Actions } from "../actions";
+
+import { Actions } from '../actions';
 const initialState = {
   data: null
 };
-
-const dataCurrency = (state = initialState, action) => {
+const order = (state = initialState, action) => {
   switch (action.type) {
-    case Actions.GET_DATA_SUCCESS: {
+    case Actions.GET_ORDER_SUCCESS: {
       const { payload: data } = action;
       return {
         ...state,
         data
       };
     }
+    case Actions.DELETE_CART:{
+      
+    }
     default:
       return state;
   }
 };
 
-export default dataCurrency;
+export default order;

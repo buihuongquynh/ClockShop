@@ -1,27 +1,26 @@
 import axiosClient from './config.services';
+import axiosClient2 from './config.servicesCart';
 
 class TableService {
-
-  static list(query) {
-    // return fetchData(query);
-    const url = '/coins/markets';
-    return axiosClient.get(url, { params: query });
-  }
-  static listCurrency() {
-    const url = '/simple/supported_vs_currencies';
-    return axiosClient.get(url);
-  }
   static listMan() {
-    const url = '/product_man';
+    const url = 'product';
     return axiosClient.get(url);
   }
-  static listWoman() {
-    const url = '/product_woman';
-    return axiosClient.get(url);
+  static listOrder() {
+    const url = 'cart';
+    return axiosClient2.get(url);
   }
   static detail(id) {
-    const url = `/product_man/${id}`;
+    const url = `product/${id}`;
     return axiosClient.get(url);
+  }
+  static addCart(data) {
+    const url = `cart`;
+    return axiosClient2.post(url, {...data});
+  }
+  static deleteCart(id) {
+    const url = `cart/${id}`;
+    return axiosClient2.delete(url);
   }
 }
 export default TableService;

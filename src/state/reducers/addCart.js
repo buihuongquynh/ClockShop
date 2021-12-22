@@ -3,9 +3,9 @@ import { Actions } from '../actions';
 const initialState = {
   data: null
 };
-const currency = (state = initialState, action) => {
-  switch (action.type) {
-    case Actions.GET_DATA_WOMAN_SUCCESS: {
+const addCart = (state = initialState, action) => {
+    switch (action.type) {
+    case Actions.ADD_CART_SUCCESS: {
       const { payload: data } = action;
       return {
         ...state,
@@ -17,4 +17,4 @@ const currency = (state = initialState, action) => {
   }
 };
 
-export default currency;
+export default addCart;

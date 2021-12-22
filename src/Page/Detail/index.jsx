@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import "./style.css";
 import { getDetail } from '../../state/actions';
@@ -8,7 +8,6 @@ function Detail() {
   const param = useParams();
   const dispatch = useDispatch();
   const dataDetail = useSelector((state) => state.getDetail.data);
-  console.log(dataDetail,"data")
   useEffect(() => {
     dispatch(getDetail(param.id));
   }, [])
@@ -17,24 +16,24 @@ function Detail() {
     <div className="Detail">
       <div className="row">
         <div className="col-md-2"></div>
-        <div className="col-md-5">
+        <div className="col-md-4">
           <img
-            src="https://curnonwatch.com/_next/image?url=https%3A%2F%2Fshop.curnonwatch.com%2Fmedia%2Fcatalog%2Fproduct%2Fs%2Ft%2Fsterling_2.jpg&w=640&q=75"
+            src={dataDetail ? dataDetail.img : null}
             alt=""
           />
         </div>
-        <div className="col-md-3">
+        <div className="col-md-4">
           <div className="card">
-            <p className="colo">COLOSSEUM</p>
-            <div className="name">STERLING</div>
+            <p className="colo">{dataDetail ? dataDetail.trademark : null}</p>
+            <div className="name">{dataDetail? dataDetail.name: null}</div>
             <div className="price mb-4">
-              <p className="order">1000 d</p>
+              <p className="order">{dataDetail ? dataDetail.price: null}</p>
               <strike letter className="old ml-1">
-                88888
+                {dataDetail? dataDetail.oldPrice: null}
               </strike>
             </div>
             <div className="status">
-              tình trạng: <span style={{color:"rgb(59, 177, 0)"}} className="st">còn Hàng</span> 
+              tình trạng: <span style={{color:"rgb(59, 177, 0)"}} className="st">{dataDetail ?dataDetail.status : null}</span> 
             </div>
             <p><span style={{color:"red"}}>GIẢM 20%</span> CHO VÒNG TAY MUA KÈM:</p>
             <div className="group__button mt-10">

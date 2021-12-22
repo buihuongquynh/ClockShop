@@ -2,25 +2,51 @@
 import React, { useEffect } from "react";
 import "./style.css";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addCart } from "../../state/actions";
+
 const Item = ({ record }) => {
   const history = useHistory();
-  console.log(record,"recod")
+  const dispatch = useDispatch();
+  const handleAddCart = () => {
+    dispatch(addCart(record));
+  };
   return (
-    <div
-      onClick={() => {
-        history.push({ pathname: `/detail/${record.id}` });
-      }}
-      className="item"
-    >
+    <div className="item">
       <div className="item__center">
-        <img src={record.img} alt="/" />
-        <a href="/" className="add__cart">
+        <img
+          src={record.img}
+          onClick={() => {
+            history.push({ pathname: `/detail/${record.id}` });
+          }}
+          alt="/"
+        />
+        <a onClick={handleAddCart} className="add__cart">
           Thêm vào giỏ hàng
         </a>
-        <p className="mt-3">{record.name}</p>
+        <p
+          onClick={() => {
+            history.push({ pathname: `/detail/${record.id}` });
+          }}
+          className="mt-3"
+        >
+          {record.name}
+        </p>
 
-        <p>{record.trademark}</p>
-        <div className="price mb-4">
+        <p
+          onClick={() => {
+            history.push({ pathname: `/detail/${record.id}` });
+          }}
+        >
+          {" "}
+          {record.trademark}
+        </p>
+        <div
+          onClick={() => {
+            history.push({ pathname: `/detail/${record.id}` });
+          }}
+          className="price mb-4"
+        >
           <p className="order">{record.price}</p>
           <strike letter className="old ml-1">
             {record.oldPrice}
