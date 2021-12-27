@@ -6,6 +6,10 @@ class TableService {
     const url = 'product';
     return axiosClient.get(url);
   }
+  static listInfo() {
+    const url = 'InfoCustomer';
+    return axiosClient2.get(url);
+  }
   static listOrder() {
     const url = 'cart';
     return axiosClient2.get(url);

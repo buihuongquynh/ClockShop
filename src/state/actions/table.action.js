@@ -39,3 +39,11 @@ export const deleteCart = (payload) => ({
   payload,
 });
 
+export const getInfo = (payload) => ({
+  type: Actions.GET_INFO,
+  payload: payload,
+});
+export const getInfoSuccess = (payload) => ({
+  type: Actions.GET_INFO_SUCCESS,
+  payload,
+});

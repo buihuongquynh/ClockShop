@@ -7,8 +7,9 @@ const actions = {
     GET_ORDER_SUCCESS: "GET_ORDER_SUCCESS",
     ADD_CART:"ADD_CART",
     ADD_CART_SUCCESS:"ADD_CART_SUCCESS",
-    DELETE_CART:"DELETE_CART"
-
+    DELETE_CART:"DELETE_CART",
+    GET_INFO: "GET_INFO",
+    GET_INFO_SUCCESS: "GET_INFO_SUCCESS",
     
   };
   export default actions;

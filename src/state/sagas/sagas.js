@@ -5,6 +5,7 @@ import {
   getDetailSuccess,
   getOrderSuccess,
   addCartSuccess,
+  getInfoSuccess
 } from "../actions";
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -37,7 +38,6 @@ function* fetchOrder(action) {
   }
 }
 function* addCart(action) {
-  console.log(action.payload,"action")
   try {
     const order = yield call(TableService.addCart, action.payload);
     yield put(addCartSuccess(order));
@@ -74,12 +74,21 @@ function* deleteCart(action) {
     yield put({ type: "USER_FETCH_FAILED", message: e.message });
   }
 }
+function* fetchInfo() {
+  try {
+    const info = yield call(TableService.listInfo);
+    yield put(getInfoSuccess(info));
+  } catch (e) {
+    yield put({ type: "USER_FETCH_FAILED", message: e.message });
+  }
+}
 function* mySaga() {
   yield takeLatest(Actions.GET_DATA_MAN, fetchMan);
   yield takeLatest(Actions.GET_DELTAI, fetchDetail);
   yield takeLatest(Actions.GET_ORDER, fetchOrder);
   yield takeLatest(Actions.ADD_CART, addCart);
   yield takeLatest(Actions.DELETE_CART, deleteCart);
+  yield takeLatest(Actions.GET_INFO, fetchInfo);
 
 }
 
