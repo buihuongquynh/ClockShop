@@ -3,15 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import "./style.css";
 import { getDetail } from '../../state/actions';
 import { useParams } from "react-router-dom";
+import { addCart } from "../../state/actions";
 import "./style.css";
+import { useHistory } from "react-router-dom";
 function Detail() {
   const param = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const dataDetail = useSelector((state) => state.getDetail.data);
   useEffect(() => {
     dispatch(getDetail(param.id));
   }, [])
-
+const handleAddcart =()=>{
+  dispatch(addCart(dataDetail));
+}
   return (
     <div className="Detail">
       <div className="row">
@@ -37,9 +42,13 @@ function Detail() {
             </div>
             <p><span style={{color:"red"}}>GIẢM 20%</span> CHO VÒNG TAY MUA KÈM:</p>
             <div className="group__button mt-10">
-              <button className="payment">THANH TOÁN NGAY</button>
+              <button
+               onClick={() => {
+                history.push({ pathname: `/payment/${dataDetail.id}` });
+              }}
+              className="payment">THANH TOÁN NGAY</button>
               <br/>
-              <button className="ADD__CART mt-3">THÊM VÀO GIỎ HÀNG</button>
+              <button onClick={handleAddcart} className="ADD__CART mt-3">THÊM VÀO GIỎ HÀNG</button>
             </div>
           </div>
         </div>
