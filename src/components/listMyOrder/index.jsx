@@ -10,7 +10,6 @@ const Notificaticon = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const dataOrder = useSelector((state) => state.getOrder.data);
-    console.log(dataOrder, "data")
     useEffect(() => {
         dispatch(getOrder());
     }, [])

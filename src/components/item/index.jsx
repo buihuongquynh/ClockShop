@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/alt-text */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect } from "react";
 import "./style.css";
@@ -19,7 +21,6 @@ const Item = ({ record }) => {
           onClick={() => {
             history.push({ pathname: `/detail/${record.id}` });
           }}
-          alt="/"
         />
         <a onClick={handleAddCart} className="add__cart">
           Thêm vào giỏ hàng

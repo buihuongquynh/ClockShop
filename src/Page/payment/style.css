@@ -1,14 +1,17 @@
 .scrolls{
     display: flex;
-    align-items: center;
     justify-content: space-between;
     padding: 100px 20px;
-    background-color: #F8F7F4;
+    width: 50%;
 }
 .left {
     width: 50%;
 }
-  
+  .form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
 .right {
 width: 50%;
 }
@@ -232,7 +235,12 @@ form{
     padding: 0;
     height: 50px;
 }
-
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
 .coupon_code_input{
     font-weight: 500;
     letter-spacing: .02em;
@@ -297,7 +305,10 @@ form{
     justify-content: space-between;
     padding: 0 0 16px;
 }
-
+.pay{
+    display: flex;
+    padding-top: 100px;
+}
 .order_total_pay{
     display: flex;
     justify-content: space-between;
