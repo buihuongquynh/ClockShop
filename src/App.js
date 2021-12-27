@@ -4,6 +4,8 @@ import Footer from "./components/footer";
 import Home from "./Page/Home";
 import Payment from "./Page/payment";
 import Detail from "./Page/Detail";
+import AllProduct from "./Page/AllProduct"
+import ProductLookUp from "./Page/ProductLookUp"
 import "react-toastify/dist/ReactToastify.css";
 import "antd/dist/antd.css";
 import "./App.css";
@@ -33,6 +35,8 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/detail/:id" exact component={Detail} />
             <Route path="/payment/:id" exact component={Payment} />
+            <Route path="/allProduct" exact component={AllProduct} />
+            <Route path="/productLookup:id" exact component={ProductLookUp} />
           </Switch>
         </div>
         <Footer />
