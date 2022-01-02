@@ -29,7 +29,7 @@ const Notificaticon = () => {
             <div className="flex items-center justify-center">
             <button 
              onClick={() => {
-                history.push({ pathname: `/payment` });
+                history.push({ pathname: `/payment/listProductInCart` });
               }}
             className="payment">THANH TOÁN NGAY</button>
             </div>

@@ -22,6 +22,10 @@ class TableService {
     const url = `cart`;
     return axiosClient2.post(url, {...data});
   }
+  static addInfo(data) {
+    const url = `InfoCustomer`;
+    return axiosClient2.post(url, {...data});
+  }
   static deleteCart(id) {
     const url = `cart/${id}`;
     return axiosClient2.delete(url);

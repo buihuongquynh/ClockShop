@@ -4,5 +4,20 @@
     margin-bottom: 100px;
 }
 .info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pro .product_info_item{
+    padding: 0;
+}
+.pro .product_info{
+    padding-bottom: 20px;
+}
+.pro pre{
+    font-weight: 600;
+    font-size: 20px;
+}
+.null{
     text-align: center;
 }

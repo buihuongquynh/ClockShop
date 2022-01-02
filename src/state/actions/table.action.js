@@ -47,3 +47,11 @@ export const getInfoSuccess = (payload) => ({
   type: Actions.GET_INFO_SUCCESS,
   payload,
 });
+export const AddInfo = (payload) => ({
+  type: Actions.ADD_INFO,
+  payload,
+});
+export const addInfoSuccess = (payload) => ({
+  type: Actions.ADD_INFO_SUCCESS,
+  payload,
+});

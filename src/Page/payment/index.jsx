@@ -6,11 +6,13 @@ import { getMan } from "../../state/actions";
 import { Form, Input, Button, Checkbox } from "antd";
 import ProductInfo from "./product-info";
 import { useParams } from "react-router-dom";
-import { getDetail, getOrder } from "../../state/actions";
-
+import { getDetail, getOrder, AddInfo } from "../../state/actions";
+import { useHistory } from "react-router-dom";
 function Home() {
   const dispatch = useDispatch();
   const param = useParams();
+  const history = useHistory();
+
   let dataOrder = [];
   const dataCart = useSelector((state) => state.getOrder.data);
   const dataDetail = useSelector((state) => state.getDetail.data);
@@ -24,7 +26,19 @@ function Home() {
     dataOrder.push(dataDetail);
   }
   const onFinish = (values) => {
-    console.log("Success:", values);
+    const id_product = []
+    dataOrder.map((item)=>(id_product.push(item)))
+    const data = {
+      fullname: values.fullname,
+      email: values.email,
+      address:values.address ,
+      phone_number: values.phone_number,
+      id_product: id_product
+      }
+      console.log(data,"data")
+      dispatch(AddInfo(data));
+      history.push({ pathname: `/` });
+
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -72,7 +86,7 @@ function Home() {
                 </Form.Item>
                 <div className="flex items-center justify-between	">
                   <Form.Item
-                    name="name"
+                    name="fullname"
                     rules={[
                       {
                         required: true,
@@ -82,7 +96,7 @@ function Home() {
                     <Input style={{ width: "245px" }} placeholder="họ tên" />
                   </Form.Item>
                   <Form.Item
-                    name="phoneNumber"
+                    name="phone_number"
                     rules={[
                       {
                         required: true,
@@ -151,7 +165,7 @@ function Home() {
                 dataOrder.map((data) => {
                   total = total + parseFloat(data.price);
 
-                  return <ProductInfo data={data} />;
+                  return <ProductInfo data={data} dataOrder={dataOrder} />;
                 })}
               <div className="coupon">
                 <form className="coupon_code" autoComplete="off">

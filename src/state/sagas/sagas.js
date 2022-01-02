@@ -5,7 +5,8 @@ import {
   getDetailSuccess,
   getOrderSuccess,
   addCartSuccess,
-  getInfoSuccess
+  getInfoSuccess,
+  addInfoSuccess
 } from "../actions";
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -58,9 +59,6 @@ function* addCart(action) {
 }
 function* deleteCart(action) {
   try {
-    yield call(TableService.deleteCart, action.payload);
-    const list = yield call(TableService.listOrder, action.payload);
-    yield put(getOrderSuccess(list));
     toast.success('delete success !!!', {
       position: 'top-center',
       autoClose: 3000,
@@ -70,6 +68,10 @@ function* deleteCart(action) {
       draggable: true,
       progress: undefined,
     });
+    yield call(TableService.deleteCart, action.payload);
+    const list = yield call(TableService.listOrder, action.payload);
+    yield put(getOrderSuccess(list));
+   
   } catch (e) {
     yield put({ type: "USER_FETCH_FAILED", message: e.message });
   }
@@ -82,6 +84,25 @@ function* fetchInfo() {
     yield put({ type: "USER_FETCH_FAILED", message: e.message });
   }
 }
+function* addInfo(action) {
+  try {
+    toast.success('success !!!', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    yield call(TableService.addInfo, action.payload);
+    const list = yield call(TableService.listOrder, action.payload);
+    yield put(getInfoSuccess(list));
+  
+  } catch (e) {
+    yield put({ type: "USER_FETCH_FAILED", message: e.message });
+  }
+}
 function* mySaga() {
   yield takeLatest(Actions.GET_DATA_MAN, fetchMan);
   yield takeLatest(Actions.GET_DELTAI, fetchDetail);
@@ -89,6 +110,7 @@ function* mySaga() {
   yield takeLatest(Actions.ADD_CART, addCart);
   yield takeLatest(Actions.DELETE_CART, deleteCart);
   yield takeLatest(Actions.GET_INFO, fetchInfo);
+  yield takeLatest(Actions.ADD_INFO, addInfo);
 
 }
 

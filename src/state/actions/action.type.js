@@ -10,7 +10,8 @@ const actions = {
     DELETE_CART:"DELETE_CART",
     GET_INFO: "GET_INFO",
     GET_INFO_SUCCESS: "GET_INFO_SUCCESS",
-    
+    ADD_INFO: "ADD_INFO",
+    ADD_INFO_SUCCESS: "ADD_INFO_SUCCESS",
   };
   export default actions;
   

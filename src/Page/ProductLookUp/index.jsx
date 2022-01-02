@@ -4,45 +4,51 @@ import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getMan, getInfo } from "../../state/actions";
 import { useParams } from "react-router-dom";
-
 import Item from "../../components/item";
+import ProductInfo from "./product-info"
 function Look() {
-    const param = useParams();
+  const param = useParams();
   const dispatch = useDispatch();
-  const listProductMan = useSelector((state) => state.getMan.data);
   const listInfo = useSelector((state) => state.getInfo.data);
-  const [dataTable, setDataTable] = useState(listProductMan);
-  const [dataIf,setDataIf] = useState(null)
+  const [dataIf, setDataIf] = useState(null);
   useEffect(() => {
-    dispatch(getMan());
     dispatch(getInfo());
-  am()
-  }, [listInfo]);
-  const am = ()=>{
-    const a = listInfo
-    const result =a&& a.filter((item) =>
-    item.phone_number.includes(param.id)
-    );
-    setDataIf(result&& result[0]);
-  }
+  }, [dispatch]);
+  const result = listInfo && listInfo.filter((item) => item.phone_number.includes(param.id));
   return (
-    <div className="productLookUP">
-       <div className="row">
-           <div className="col-md-6">
-                <div className="info">
-                    <p>{dataIf && dataIf.fullname}</p>
-                    <p>{dataIf && dataIf.email}</p>
-                    <p>{dataIf && dataIf.address}</p>
-                    <p>{dataIf && dataIf.phone_number}</p>
-                </div>
-           </div>
-           <div className="col-md-6">
-                <div className="pro">
-
-                </div>
-           </div>
-       </div>
-    </div>
+      result &&
+      <div className="productLookUP">
+        {
+          result.length>0 ? 
+          <div className="row">
+          <div className="col-md-6">
+            <div className="info">
+              <div className="if__center">
+              <pre>Họ tên:      {result && result[0].fullname}</pre>
+              <pre>Email:       {result && result[0].email}</pre>
+              <pre>Địa chỉ:     {result && result[0].address}</pre>
+              <pre>SDT:         {result && result[0].phone_number}</pre>
+              </div>
+             
+            </div>
+          </div>
+          <div className="col-md-5">
+            <div className="pro">
+            {result.length>0 &&
+                  result[0].id_product.map((data) => {
+                    return <ProductInfo data={data}/>;
+                  })}
+            </div>
+          </div>
+        </div>
+          : 
+          <div className="productLookUP">
+          <div className="null">không có user nào khớp với số điện thoại</div>
+        </div>
+        }
+     
+  </div>
+   
   );
 }
 export default Look;
