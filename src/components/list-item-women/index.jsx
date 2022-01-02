@@ -6,7 +6,7 @@ import Item from "../item";
 import { useDispatch } from "react-redux";
 import { Actions } from "../../state/actions";
 const listItems = ({ listProductWoman }) => {
-  const listItem = listProductWoman&& listProductWoman.filter((item)=>item.id > 4) 
+  const listItem = listProductWoman&& listProductWoman.filter((item)=> item.id > 4 && item.id < 9) 
 
   return (
     <div className="listItem">
