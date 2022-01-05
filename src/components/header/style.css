@@ -24,6 +24,7 @@
 img{
     height: 48px;
     color: aliceblue;
+    cursor: pointer;
     
 }
 .header ul{
@@ -33,4 +34,6 @@ img{
 }
 .header__left li{
 margin-right: 20px;
+}
+@media (max-width: 768px) {
 }

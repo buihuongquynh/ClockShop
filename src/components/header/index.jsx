@@ -12,7 +12,7 @@ import {
   SearchOutlined,
 } from '@ant-design/icons'
 import { Layout, Menu, Avatar, Input, Tooltip } from 'antd'
-
+import Logo from "./logo1.png"
 import ListMyOrder from "../listMyOrder"
 const Header = () => {
   const ref = useRef()
@@ -65,7 +65,7 @@ const Header = () => {
      <Popover placement="bottom" content={<ListMyOrder/>} trigger="click">
      <div style={{cursor: "pointer"}} className="flex items-center">
      <span>Giỏ hàng</span>
-      <img style={{width:'30px', height:'30px'}} src="https://tse2.mm.bing.net/th?id=OIP.W7RIqUpb4s2JM86eZ3P5FQHaHa&pid=Api&P=0&w=300&h=300" alt="" />
+      <img style={{width:'30px', height:'30px'}} src={Logo} alt="logo" />
      </div>
       </Popover>
       <span className="queue-demo">

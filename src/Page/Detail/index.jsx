@@ -54,6 +54,7 @@ const handleAddcart =()=>{
         </div>
         <div className="col-md-2"></div>
       </div>
+      <div></div>
     </div>
   );
 }

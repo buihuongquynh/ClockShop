@@ -1,9 +1,13 @@
 .footer .item-mg{
     margin: 0 100px;
 }
+.info{
+    flex-direction: column;
+}
 .footer{
     padding: 50px 0;
     background-color: #F8F7F4;
+    border-top: 10px solid #e2dfdf;
 }
 input{
     background: #f8f7f4;

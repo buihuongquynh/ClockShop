@@ -5,27 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMan } from "../../state/actions";
 import Item from "../../components/item";
 import {
-  Table,
-  Button,
-  Slider,
-  DatePicker,
   Input,
-  Empty,
-  Select,
-  Tooltip,
-  Space,
-  Modal,
-  notification,
-  Popover,
+  Spin
 } from "antd";
-import {
-  SearchOutlined,
-  FilterOutlined,
-  EditTwoTone,
-  DeleteTwoTone,
-  ExclamationCircleOutlined,
-  CheckCircleTwoTone,
-} from "@ant-design/icons";
 function Home() {
   const dispatch = useDispatch();
   const listProductMan = useSelector((state) => state.getMan.data);
@@ -41,6 +23,7 @@ function Home() {
     setDataTable(result);
   };
   return (
+    dataTable? (
     <div className="allWrap">
       <div className="search">
         <Input
@@ -60,7 +43,23 @@ function Home() {
             </div>
           ))}
       </div>
-    </div>
+    </div>)
+    :(
+      (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+            height: "100%",
+            paddingTop:'200px'
+          }}
+          className="spin"
+        >
+          <Spin />
+        </div>)
+    )
   );
 }
 export default Home;
