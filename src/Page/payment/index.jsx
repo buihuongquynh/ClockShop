@@ -84,7 +84,7 @@ function Home() {
                 >
                   <Input style={{ width: "500px" }} placeholder="email" />
                 </Form.Item>
-                <div className="flex items-center justify-between	">
+                <div className="flex items-center justify-between sc-colum	">
                   <Form.Item
                     name="fullname"
                     rules={[

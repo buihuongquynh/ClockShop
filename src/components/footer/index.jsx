@@ -4,11 +4,11 @@ import { Row, Col, Button } from "antd";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="top flex justify-center">
+      <div className="top flex justify-center man-wrap">
         <div className="footer__top item-mg">
           <div className="info">
             <h6>NHẬN THÔNG TIN MỚI NHẤT TỪ CURNON</h6>
-            <Row>
+            <Row className="colum">
               <Col style={{ marginRight: "27px" }} span={5}>
                 <input placeholder="Giới tính" type="text" />
               </Col>
