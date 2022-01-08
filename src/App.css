@@ -16,7 +16,12 @@ body{
   ::-webkit-scrollbar {
       width: 5px;
     }
-    
+    .banner_bot_cen{
+      width: 100%;
+    }
+    .banner_bot_cen span{
+      font-size: 9px;
+    }
     /* Track */
     ::-webkit-scrollbar-track {
       box-shadow: inset 0 0 5px rgb(137, 167, 98); 

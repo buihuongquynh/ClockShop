@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="footer">
       <div className="top flex justify-center man-wrap">
         <div className="footer__top item-mg">
-          <div className="info">
+          <div className="infos">
             <h6>NHẬN THÔNG TIN MỚI NHẤT TỪ CURNON</h6>
             <Row className="colum">
               <Col style={{ marginRight: "27px" }} span={5}>
@@ -32,34 +32,34 @@ const Footer = () => {
             <p>0868889103</p>
             <div className="icon-contact flex items-center">
               <img
-                className="mr-1"
+                className="mr-2"
                 src="https://curnonwatch.com/_next/static/image/components/footer/assets/icon_fb.2a84c3f988fa77f0dc76bbdcf9ff05c6.svg"
                 alt=""
               />
               <img
-                className="mr-1"
+                className="mr-2"
                 src="https://curnonwatch.com/_next/static/image/components/footer/assets/icon_insta.ff542f26952d0e0f560a528bd802d78b.svg"
                 alt=""
               />
               <img
-                className="mr-1"
+                className="mr-2"
                 src="https://curnonwatch.com/_next/static/image/components/footer/assets/icon_youtube.ef8c1337942994daa4b5638ec33311ae.svg"
                 alt=""
               />
             </div>
             <div className="icon-contact2 flex items-center">
               <img
-                className="mr-1"
+                className="mr-2"
                 src="https://curnonwatch.com/_next/static/image/components/footer/assets/cod.a04c67da9d3edece51e24c08592d20ec.png"
                 alt=""
               />
               <img
-                className="mr-1"
+                className="mr-2"
                 src="https://curnonwatch.com/_next/static/image/components/footer/assets/fundiin.0788fcd82b33f7ae4d33f7ee38841806.png"
                 alt=""
               />
               <img
-                className="mr-1"
+                className="mr-2"
                 src="https://curnonwatch.com/_next/static/image/components/footer/assets/momo.e7977f80729f86e583f88468e7a823d4.png"
                 alt=""
               />

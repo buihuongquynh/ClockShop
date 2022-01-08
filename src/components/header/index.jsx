@@ -3,16 +3,11 @@ import "./style.css";
 import {useHistory } from 'react-router-dom';
 import { Popover } from 'antd';
 import {
-  BarChartOutlined,
-  FileOutlined,
-  FileProtectOutlined,
-  HomeOutlined,
-  MenuOutlined,
-  TableOutlined,
+  ShoppingCartOutlined,
   SearchOutlined,
 } from '@ant-design/icons'
 import { Layout, Menu, Avatar, Input, Tooltip } from 'antd'
-import Logo from "./logo1.png"
+import Logo from "./logoR.png"
 import ListMyOrder from "../listMyOrder"
 const Header = () => {
   const ref = useRef()
@@ -59,16 +54,17 @@ const Header = () => {
      <div onClick={() => {
         history.push({ pathname: `/` });
       }} className="header__center">
-      <img style={{width:'170px', height:"70px"}} src="https://tse4.mm.bing.net/th?id=OIP.6EWoZ_VgxyijiQwamWBD1gHaCX&pid=Api&P=0&w=535&h=172" alt="" />
+      <img style={{width:'200px', height:"100px"}} src={Logo} alt="" />
      </div>
      <div className="header__rignt flex items-center">
      <Popover placement="bottom" content={<ListMyOrder/>} trigger="click">
      <div style={{cursor: "pointer"}} className="flex items-center">
      <span>Giỏ hàng</span>
-      <img style={{width:'30px', height:'30px'}} src={Logo} alt="logo" />
+     <ShoppingCartOutlined style={{color:'black !important', fontSize:'16px'}}/>
      </div>
       </Popover>
       <span className="queue-demo">
+        <span style={{textTransform:'capitalize', color:'blue'}}>Tra cứu đơn hàng</span>
                 {showSearchIcon && (
                   <a className="hv-icon" onClick={onClick}>
                     <SearchOutlined style={{ marginLeft: '4px', fontSize: '30px' }} />

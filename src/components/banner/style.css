@@ -12,6 +12,14 @@
 .banner .text{
     transform: translateX(-80%);
 }
+.banner_bot_cen{
+    width: 80%;
+}
+.anticon{
+    color: black !important;
+    font-size: 16px !important;
+    margin-right: 10px;
+}
 .banner .jackson{
     color: aliceblue;
     font-size: 40px;
@@ -22,6 +30,9 @@
     text-align: center;
     margin-bottom: 12px;
     text-transform: uppercase;
+}
+.banner__bot{
+    background-color: #e4e3e0;
 }
 .banner .unbre{
     font-size: 16px;

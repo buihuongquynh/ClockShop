@@ -1,13 +1,17 @@
 .footer .item-mg{
     margin: 0 100px;
 }
-.info{
+.infos{
     flex-direction: column;
+    align-items: flex-start;
 }
 .footer{
     padding: 50px 0;
     background-color: #F8F7F4;
     border-top: 10px solid #e2dfdf;
+}
+.footer p{
+    margin: 10px 0;
 }
 input{
     background: #f8f7f4;
@@ -22,7 +26,7 @@ input{
 }
 .footer button{
     cursor: pointer;
-    width: 564px;
+    width: 87.5%;
     background: #161a21 !important;
     border: none;
     color: #fff;
@@ -53,6 +57,6 @@ max-width: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 170px;
+    margin: 0 132px;
 }
 
