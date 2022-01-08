@@ -64,7 +64,7 @@ const Header = () => {
      </div>
       </Popover>
       <span className="queue-demo">
-        <span style={{textTransform:'capitalize', color:'blue'}}>Tra cứu đơn hàng</span>
+        <span style={{textTransform:'capitalize', color:'blue', marginRight:'10px'}}>Tra cứu đơn hàng</span>
                 {showSearchIcon && (
                   <a className="hv-icon" onClick={onClick}>
                     <SearchOutlined style={{ marginLeft: '4px', fontSize: '30px' }} />
